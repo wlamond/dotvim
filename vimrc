@@ -17,9 +17,10 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
-
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'sheerun/vim-polyglot'
+Bundle 'StanAngeloff/php.vim'
 
 " fix indent and color stuff...
 
