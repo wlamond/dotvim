@@ -16,12 +16,8 @@ Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
-Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'sheerun/vim-polyglot'
-Bundle 'StanAngeloff/php.vim'
+Bundle 'Raimondi/delimitMate'
 
 " fix indent and color stuff...
 
@@ -31,11 +27,11 @@ set smartindent
 set shiftwidth=2
 set number
 set tabstop=2
+set mouse=a
 syntax on 
 filetype plugin indent on
 
 colorscheme zenburn
-
 
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
@@ -55,13 +51,32 @@ nmap <F8> :TagbarToggle<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-
 " autocomplete curly braces
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
 
+if vundle_autoinstall
+	echo "Installing bundles..."
+	echo ""
+	:BundleInstall
+endif
 
+let g:ctrlp_open_new_file = 'h'
+let g:ctrlp_user_command = "find %s -type f -not -wholename '*.svn*' " .
+                         \ "-not -iname '*.jpg' " .
+                         \ "-not -iname '*.gif' " .
+                         \ "-not -iname '*.pdf' " .
+                         \ "-not -iname '*.png' " .
+                         \ "| sort -d"
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\.git$|\.svn$',
+    \ 'file': '\.so$|\.dat$|\.DS_Store$|Thumbs.db|\.pdf$|\.jpg$|\.png$|\.ttf$|\.gif$'
+		\ }
 
+nmap <F8> :TagbarToggle<CR>
 
+set tags=./tags;/
+
+}
