@@ -78,5 +78,3 @@ let g:ctrlp_custom_ignore = {
 nmap <F8> :TagbarToggle<CR>
 
 set tags=./tags;/
-
-}
