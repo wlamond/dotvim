@@ -27,12 +27,14 @@ colorscheme zenburn
 
 set smartindent
 set shiftwidth=2
-set number
+set expandtab
 set tabstop=2
+set number
 set mouse=a
-set incsearch
 set list
 set scrolloff=5
+set ignorecase smartcase
+set incsearch
 
 syntax on 
 filetype plugin indent on
