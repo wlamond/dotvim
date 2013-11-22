@@ -18,30 +18,33 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'Raimondi/delimitMate'
+Bundle 'sheerun/vim-polyglot'
 
 " fix indent and color stuff...
-
 set term=screen-256color
 set t_Co=256
+colorscheme zenburn
+
 set smartindent
 set shiftwidth=2
 set number
 set tabstop=2
 set mouse=a
+set incsearch
+set list
+set scrolloff=5
+
 syntax on 
 filetype plugin indent on
-
-colorscheme zenburn
-
 let &t_AB="\e[48;5;%dm"
-let &t_AF="\e[38;5;%dm"
 
 " set up some keybinds... 
 let mapleader = ","
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-map <c-j> <c-w>j
+" remap the window switch functions. C-J since C-j is tmux's prefix.
+map <c-J> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
@@ -51,11 +54,7 @@ nmap <F8> :TagbarToggle<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" autocomplete curly braces
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+set tags=./tags;/
 
 if vundle_autoinstall
 	echo "Installing bundles..."
@@ -73,8 +72,8 @@ let g:ctrlp_user_command = "find %s -type f -not -wholename '*.svn*' " .
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$|\.svn$',
     \ 'file': '\.so$|\.dat$|\.DS_Store$|Thumbs.db|\.pdf$|\.jpg$|\.png$|\.ttf$|\.gif$'
-		\ }
+\ }
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
-nmap <F8> :TagbarToggle<CR>
-
-set tags=./tags;/
+autocmd BufWritePre *.php :%s/[\r \t]\+$//e
+autocmd BufWritePost .vimrc :so ~/.vimrc
