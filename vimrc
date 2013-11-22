@@ -64,7 +64,6 @@ if vundle_autoinstall
 	:BundleInstall
 endif
 
-let g:ctrlp_open_new_file = 'h'
 let g:ctrlp_user_command = "find %s -type f -not -wholename '*.svn*' " .
                          \ "-not -iname '*.jpg' " .
                          \ "-not -iname '*.gif' " .
