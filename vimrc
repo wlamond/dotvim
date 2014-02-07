@@ -44,11 +44,11 @@ set directory^=$HOME/tmp
 
 set timeoutlen=1000 ttimeoutlen=0
 
-syntax on 
+syntax on
 filetype plugin indent on
 let &t_AB="\e[48;5;%dm"
 
-" set up some keybinds... 
+" set up some keybinds...
 let mapleader = ","
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
@@ -96,8 +96,11 @@ let g:tagbar_type_php  = {
 
 "let g:syntastic_php_checkers = ['phpcs']
 
+nnoremap K <Nop>
+
 autocmd BufWritePre *.php :%s/[\r \t]\+$//e
 autocmd BufWritePre *.py :%s/[\r \t]\+$//e
 autocmd BufWritePre *.js :%s/[\r \t]\+$//e
+autocmd BufWritePre * :%s/[\r \t]\+$//e
 autocmd BufWritePost .vimrc :so ~/.vimrc
 autocmd FileType python set expandtab ts=4 sw=4
