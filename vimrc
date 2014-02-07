@@ -19,6 +19,8 @@ Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 "Bundle 'Raimondi/delimitMate' " i loved this, but it made my vim super slow on large files...
 Bundle 'sheerun/vim-polyglot'
+Bundle 'bling/vim-airline'
+
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
@@ -41,6 +43,8 @@ set scrolloff=5
 set ignorecase smartcase
 set incsearch
 set directory^=$HOME/tmp
+"let g:airline_powerline_fonts = 1
+set laststatus=2
 
 set timeoutlen=1000 ttimeoutlen=0
 
