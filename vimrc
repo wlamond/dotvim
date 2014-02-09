@@ -32,6 +32,7 @@ set term=screen-256color
 set t_Co=256
 colorscheme zenburn
 
+set hlsearch
 set smartindent
 set shiftwidth=2
 set expandtab
