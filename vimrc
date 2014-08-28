@@ -11,17 +11,21 @@ if !filereadable(vundle_readme)
 endif
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'ervandew/supertab'
-Bundle 'majutsushi/tagbar'
-"Bundle 'Raimondi/delimitMate' " i loved this, but it made my vim super slow on large files...
-Bundle 'sheerun/vim-polyglot'
-Bundle 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
+"Plugin 'Raimondi/delimitMate' " i loved this, but it made my vim super slow on large files...
+Plugin 'sheerun/vim-polyglot'
+Plugin 'bling/vim-airline'
+Plugin 'tacahiroy/ctrlp-funky'
 
+call vundle#end()
+filetype plugin indent on
 
+"
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
@@ -50,7 +54,6 @@ set laststatus=2
 set timeoutlen=1000 ttimeoutlen=0
 
 syntax on
-filetype plugin indent on
 let &t_AB="\e[48;5;%dm"
 
 " set up some keybinds...
@@ -72,7 +75,7 @@ vnoremap > >gv
 if vundle_autoinstall
   echo "Installing bundles..."
   echo ""
-  :BundleInstall
+  :PluginInstall
 endif
 
 let g:ctrlp_map = '<leader>f'
@@ -87,7 +90,10 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$|\.svn$',
     \ 'file': '\.so$|\.dat$|\.DS_Store$|Thumbs.db|\.pdf$|\.jpg$|\.png$|\.ttf$|\.gif$'
 \ }
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+"let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_extensions = ['funky']
+
+nnoremap <Leader>g :CtrlPFunky<Cr>
 
 let g:tagbar_type_php  = {
   \ 'ctagstype' : 'php',
