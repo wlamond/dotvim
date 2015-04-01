@@ -21,6 +21,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'bling/vim-airline'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'gnupg'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,6 +70,8 @@ map <c-l> <c-w>l
 
 nmap <F8> :TagbarToggle<CR>
 
+map <Leader>s :set spell spelllang=en_us<CR>
+
 vnoremap < <gv
 vnoremap > >gv
 
@@ -106,6 +109,8 @@ let g:tagbar_type_php  = {
 \ }
 
 "let g:syntastic_php_checkers = ['phpcs']
+
+let g:GPGDefaultRecipients = ['Will Lamond']
 
 nnoremap K <Nop>
 
