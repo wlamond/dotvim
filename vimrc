@@ -49,10 +49,14 @@ set ignorecase smartcase
 set incsearch
 set directory^=$HOME/tmp
 set laststatus=2
-
+set textwidth=80
 set timeoutlen=1000 ttimeoutlen=0
 
 syntax on
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=0
+
 let &t_AB="\e[48;5;%dm"
 
 " set up some keybinds...
