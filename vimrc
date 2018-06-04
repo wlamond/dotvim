@@ -21,6 +21,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'bling/vim-airline'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'gnupg'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -49,12 +50,11 @@ set ignorecase smartcase
 set incsearch
 set directory^=$HOME/tmp
 set laststatus=2
-set textwidth=80
+set textwidth=79
 set timeoutlen=1000 ttimeoutlen=0
 
 syntax on
-
-set colorcolumn=80
+autocmd BufReadPre *.py set colorcolumn=80
 highlight ColorColumn ctermbg=0
 
 let &t_AB="\e[48;5;%dm"
@@ -63,6 +63,10 @@ let &t_AB="\e[48;5;%dm"
 let mapleader = ","
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
+
+" ALE keybinds
+nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " remap the window switch functions. C-J since C-j is tmux's prefix.
 map <c-J> <c-w>j
@@ -84,7 +88,7 @@ if vundle_autoinstall
 endif
 
 let g:ctrlp_map = '<leader>f'
-nmap <Leader>j <Esc><C-]>
+nmap <Leader>J <Esc><C-]>
 let g:ctrlp_user_command = "find %s -type f -not -wholename '*.svn*' " .
                          \ "-not -iname '*.jpg' " .
                          \ "-not -iname '*.gif' " .
