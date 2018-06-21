@@ -50,12 +50,9 @@ set ignorecase smartcase
 set incsearch
 set directory^=$HOME/tmp
 set laststatus=2
-set textwidth=79
 set timeoutlen=1000 ttimeoutlen=0
 
 syntax on
-autocmd BufReadPre *.py set colorcolumn=80
-highlight ColorColumn ctermbg=0
 
 let &t_AB="\e[48;5;%dm"
 
@@ -125,4 +122,5 @@ autocmd BufWritePre *.py :%s/[\r \t]\+$//e
 autocmd BufWritePre *.js :%s/[\r \t]\+$//e
 autocmd BufWritePre * :%s/[\r \t]\+$//e
 autocmd BufWritePost .vimrc :so ~/.vimrc
-autocmd FileType python set expandtab ts=4 sw=4
+autocmd FileType python set expandtab ts=4 sw=4 textwidth=79 colorcolumn=80
+highlight ColorColumn ctermbg=0
