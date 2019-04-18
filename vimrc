@@ -1,4 +1,5 @@
 set nocompatible
+set shell=/bin/bash
 
 let vundle_autoinstall = 0
 let vundle_readme = expand('~/.vim/bundle/vundle/README.md')
@@ -18,7 +19,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'gnupg'
 Plugin 'w0rp/ale'
@@ -51,6 +52,7 @@ set incsearch
 set directory^=$HOME/tmp
 set laststatus=2
 set timeoutlen=1000 ttimeoutlen=0
+set backspace=indent,eol,start
 
 syntax on
 
@@ -60,6 +62,8 @@ let &t_AB="\e[48;5;%dm"
 let mapleader = ","
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
+map <Leader>v <esc>:-tabmove<CR>
+map <Leader>b <esc>:+tabmove<CR>
 
 " ALE keybinds
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
@@ -122,5 +126,8 @@ autocmd BufWritePre *.py :%s/[\r \t]\+$//e
 autocmd BufWritePre *.js :%s/[\r \t]\+$//e
 autocmd BufWritePre * :%s/[\r \t]\+$//e
 autocmd BufWritePost .vimrc :so ~/.vimrc
-autocmd FileType python set expandtab ts=4 sw=4 textwidth=79 colorcolumn=80
+autocmd FileType python set expandtab ts=4 sw=4 textwidth=119 colorcolumn=120
 highlight ColorColumn ctermbg=0
+
+" turn hybrid line numbers on
+set number relativenumber
