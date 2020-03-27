@@ -64,13 +64,14 @@ map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 map <Leader>v <esc>:-tabmove<CR>
 map <Leader>b <esc>:+tabmove<CR>
+noremap <Leader>y "*y
 
 " ALE keybinds
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " remap the window switch functions. C-J since C-j is tmux's prefix.
-map <c-J> <c-w>j
+map <c-m> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
